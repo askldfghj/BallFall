@@ -63,6 +63,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\ChasePlayer.cs" />
+    <Compile Include="Assets\FloorContrl.cs" />
+    <Compile Include="Assets\GameMaster.cs" />
     <Compile Include="Assets\NGUI\Examples\Scripts\InventorySystem\Game\EquipItems.cs" />
     <Compile Include="Assets\NGUI\Examples\Scripts\InventorySystem\Game\EquipRandomItem.cs" />
     <Compile Include="Assets\NGUI\Examples\Scripts\InventorySystem\Game\UICursor.cs" />
@@ -181,10 +184,9 @@
     <Compile Include="Assets\NGUI\Scripts\UI\UITiledSprite.cs" />
     <Compile Include="Assets\NGUI\Scripts\UI\UITooltip.cs" />
     <Compile Include="Assets\NGUI\Scripts\UI\UIViewport.cs" />
-    <Compile Include="Assets\dsgsg.cs" />
-    <Compile Include="Assets\gsdg.cs" />
+    <Compile Include="Assets\PlayerContrl.cs" />
+    <Compile Include="Assets\TopWallContrl.cs" />
     <Compile Include="Assets\spawn.cs" />
-    <Compile Include="Assets\wqegwgsd.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\NGUI\Examples\Atlases\Fantasy\Fantasy Font - Normal.txt" />
@@ -219,6 +221,9 @@
     <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Colored (Packed).shader" />
     <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Colored (SoftClip).shader" />
     <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Colored.shader" />
+    <None Include="Assets\Resource\Font\8bit_wonder\8-BIT WONDER.TXT" />
+    <None Include="Assets\Resource\Font\8bit_wonder\README.TXT" />
+    <None Include="Assets\Resource\Font\distant_stroke\READ ME.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>

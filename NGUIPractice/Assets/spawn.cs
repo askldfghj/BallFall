@@ -4,16 +4,25 @@ using System.Collections.Generic;
 
 public class spawn : MonoBehaviour
 {
+    public static spawn _current;
+
     public Transform _player;
     public GameObject _floorSet;
     List<GameObject> _floorList;
 
     public int _floorAmount;
 
+    Vector3 _vec1;
     float _spawning;
     // Use this for initialization
+    void Awake()
+    {
+        _current = this;
+    }
+
     void Start()
     {
+        _vec1 = new Vector3(1, 1, 1);
         Time.timeScale = 0f;
         _floorList = new List<GameObject>();
         _spawning = _player.localPosition.y;
@@ -42,14 +51,14 @@ public class spawn : MonoBehaviour
             _vec.x += Random.Range(-226, 227);
             floor.transform.parent = transform;
             floor.transform.localPosition = _vec;
-            floor.transform.localScale = new Vector3(1, 1, 1);
+            floor.transform.localScale = _vec1;
             floor.SetActive(true);
         }
 
         Time.timeScale = 1f;
     }
 
-    GameObject GetFloor()
+    public GameObject GetFloor()
     {
         for (int i = 0; i < _floorList.Count; i++)
         {
@@ -64,25 +73,7 @@ public class spawn : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (_player.localPosition.y < _spawning - 250)
-        {
-            CreateFloor();
-            _spawning = _player.localPosition.y;
-        }
-    }
-
-    void CreateFloor()
-    {
-        GameObject floor = GetFloor();
-        if (floor == null) return;
-        Vector3 _vec = _player.localPosition;
-        _vec.x = 0;
-        _vec.y -= 1250;
-        _vec.x += Random.Range(-226, 227);
-        floor.transform.parent = transform;
-        floor.transform.localPosition = _vec;
-        floor.transform.localScale = new Vector3(1, 1, 1);
-        floor.SetActive(true);
+        
     }
 
     public void Dispose()
