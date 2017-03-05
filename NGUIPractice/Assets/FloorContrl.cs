@@ -7,16 +7,26 @@ public class FloorContrl : MonoBehaviour
     GameObject _GM;
     GameMaster _master;
 
+
     Vector3 _vec1;
     Vector3 _spawnVec;
     bool _isCreate;
+
+    Transform _leftVelcro;
+    Transform _rightVelcro;
+    Quaternion _velrot;
+
+    int _velcrochance;
 
     void Awake()
     {
         _player = GameObject.Find("Player").transform;
         _GM = GameObject.Find("GM");
+        _rightVelcro = GameObject.Find("RightVelcro").transform;
+        _leftVelcro = GameObject.Find("LeftVelcro").transform;
         _master = _GM.GetComponent<GameMaster>();
         _vec1 = new Vector3(1, 1, 1);
+        _velrot = Quaternion.Euler(0, 0, 180);
     }
     void OnEnable()
     {
@@ -68,5 +78,32 @@ public class FloorContrl : MonoBehaviour
         floor.transform.localPosition = _spawnVec;
         floor.transform.localScale = _vec1;
         floor.SetActive(true);
+
+        _velcrochance = Random.Range(0, 11);
+        if (_velcrochance >= 7)
+        {
+            GameObject velcro = spawn._current.GetVelcro();
+            if (velcro == null) return;
+            int ran = Random.Range(0, 2);
+            VelcroBody velctrl = velcro.GetComponent<VelcroBody>();
+            VelcroSetting(ran, velcro);
+            velcro.transform.localScale = _vec1;
+            velcro.SetActive(true);
+            velctrl.SetBuildPosi(ran);
+        }
+    }
+
+    void VelcroSetting(int ran, GameObject velcro)
+    {
+        if (ran == 0)
+        {
+            velcro.transform.localPosition = new Vector3(337f, _spawnVec.y + 88f, 0);
+            velcro.transform.localRotation = Quaternion.identity;
+        }
+        else
+        {
+            velcro.transform.localPosition = new Vector3(-337f, _spawnVec.y + 88f, 0);
+            velcro.transform.localRotation = _velrot;
+        }
     }
 }

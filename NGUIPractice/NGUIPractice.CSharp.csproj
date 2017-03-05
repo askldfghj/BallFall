@@ -186,6 +186,8 @@
     <Compile Include="Assets\NGUI\Scripts\UI\UIViewport.cs" />
     <Compile Include="Assets\PlayerContrl.cs" />
     <Compile Include="Assets\TopWallContrl.cs" />
+    <Compile Include="Assets\VelcroBody.cs" />
+    <Compile Include="Assets\VelcroContrl.cs" />
     <Compile Include="Assets\spawn.cs" />
   </ItemGroup>
   <ItemGroup>

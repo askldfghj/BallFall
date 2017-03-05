@@ -24,11 +24,11 @@ public class GameMaster : MonoBehaviour
         _result.SetActive(true);
         _resultboard.text = _score.ToString();
         Time.timeScale = 0f;
-        spawn._current.Dispose();
     }
 
     public void ReGame()
     {
+        Time.timeScale = 1f;
         _result.SetActive(false);
         Application.LoadLevel("1_play");
     }

@@ -8,15 +8,20 @@ public class spawn : MonoBehaviour
 
     public Transform _player;
     public GameObject _floorSet;
+    public GameObject _velcro;
     List<GameObject> _floorList;
+    List<GameObject> _velcroList;
 
     public int _floorAmount;
+    public int _velcroAmount;
 
     Vector3 _vec1;
     float _spawning;
     // Use this for initialization
     void Awake()
     {
+        _velcroList = new List<GameObject>();
+        _floorList = new List<GameObject>();
         _current = this;
     }
 
@@ -24,7 +29,6 @@ public class spawn : MonoBehaviour
     {
         _vec1 = new Vector3(1, 1, 1);
         Time.timeScale = 0f;
-        _floorList = new List<GameObject>();
         _spawning = _player.localPosition.y;
         StartCoroutine(CreatePool());      
     }
@@ -33,11 +37,22 @@ public class spawn : MonoBehaviour
     {
         for (int i = 0; i < _floorAmount; i++)
         {
-            GameObject enemybullet = (GameObject)Instantiate(_floorSet);
+            GameObject floorset = (GameObject)Instantiate(_floorSet);
 
-            enemybullet.transform.parent = transform; //Pool오브젝트를 부모로 삼도록 한다.
-            enemybullet.SetActive(false);
-            _floorList.Add(enemybullet);
+            floorset.transform.parent = transform; //Pool오브젝트를 부모로 삼도록 한다.
+            floorset.SetActive(false);
+            _floorList.Add(floorset);
+            //비활성후 리스트 추가
+            yield return null;
+        }
+
+        for (int i = 0; i < _velcroAmount; i++)
+        {
+            GameObject velcro = (GameObject)Instantiate(_velcro);
+
+            velcro.transform.parent = transform; //Pool오브젝트를 부모로 삼도록 한다.
+            velcro.SetActive(false);
+            _velcroList.Add(velcro);
             //비활성후 리스트 추가
             yield return null;
         }
@@ -65,6 +80,18 @@ public class spawn : MonoBehaviour
             if (!_floorList[i].activeInHierarchy)
             {
                 return _floorList[i];
+            }
+        }
+        return null;
+    }
+
+    public GameObject GetVelcro()
+    {
+        for (int i = 0; i < _velcroList.Count; i++)
+        {
+            if (!_velcroList[i].activeInHierarchy)
+            {
+                return _velcroList[i];
             }
         }
         return null;
