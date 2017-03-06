@@ -9,6 +9,7 @@ public class TopWallContrl : MonoBehaviour
         if (col.gameObject.tag == "Player")
         {
             _GM.GameOver();
+            _GM.IsOver();
         }
     }
 }

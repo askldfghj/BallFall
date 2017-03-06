@@ -9,11 +9,16 @@ public class GameMaster : MonoBehaviour
     public GameObject _pause;
     public PlayerContrl _player;
     public List<InitContrl> _InitObjList;
+
+    bool _isPause;
+    bool _isOver;
     int _score;
     // Use this for initialization
 
     void Start()
     {
+        _isPause = false;
+        _isOver = false;
         _score = 0;
     }
 
@@ -27,6 +32,7 @@ public class GameMaster : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             Time.timeScale = 0f;
+            _isPause = true;
             _pause.SetActive(true);
         }
     }
@@ -46,29 +52,48 @@ public class GameMaster : MonoBehaviour
 
     public void ReGame()
     {
-        _result.SetActive(false);
-        //Application.LoadLevel("1_play");
-        _score = 0;
-        spawn._current.PoolInActive();
-        for (int i = 0; i < _InitObjList.Count; i++)
+        if (!_isPause)
         {
-            _InitObjList[i].InitObject();
+            _result.SetActive(false);
+            //Application.LoadLevel("1_play");
+            _score = 0;
+            _scoreboard.text = _score.ToString();
+            spawn._current.PoolInActive();
+            for (int i = 0; i < _InitObjList.Count; i++)
+            {
+                _InitObjList[i].InitObject();
+            }
+            transform.position = Vector3.zero;
+            spawn._current.InitStage();
+            _player.SetInit();
+            Time.timeScale = 1f;
+            _isOver = false;
         }
-        transform.position = Vector3.zero;
-        spawn._current.InitStage();
-        _player.SetInit();
-        Time.timeScale = 1f;
     }
 
     public void PauseCancel()
     {
-        Time.timeScale = 1f;
         _pause.SetActive(false);
+        _isPause = false;
+        if (!_isOver)
+        {
+            Time.timeScale = 1f;
+        }
     }
 
     public void QuitProcess()
     {
         Application.LoadLevel("0_start");
+    }
+
+    public void IsOver()
+    {
+        _isOver = true;
+    }
+
+    public void IsPause()
+    {
+
     }
 
     public int GetScore()
