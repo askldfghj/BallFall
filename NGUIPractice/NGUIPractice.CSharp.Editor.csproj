@@ -99,8 +99,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\NGUI\Examples\Scripts\InventorySystem\Editor\InvDatabaseInspector.cs" />
-    <Compile Include="Assets\NGUI\Examples\Scripts\InventorySystem\Editor\InvFindItem.cs" />
     <Compile Include="Assets\NGUI\Scripts\Editor\BMFontReader.cs" />
     <Compile Include="Assets\NGUI\Scripts\Editor\ComponentSelector.cs" />
     <Compile Include="Assets\NGUI\Scripts\Editor\NGUIEditorTools.cs" />
@@ -135,19 +133,6 @@
     <Compile Include="Assets\NGUI\Scripts\Editor\UIWidgetInspector.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\NGUI\Examples\Atlases\Fantasy\Fantasy Font - Normal.txt" />
-    <None Include="Assets\NGUI\Examples\Atlases\Refractive\Refractive Font - Header.txt" />
-    <None Include="Assets\NGUI\Examples\Atlases\Refractive\Refractive Font - Normal.txt" />
-    <None Include="Assets\NGUI\Examples\Atlases\SciFi\SciFi Font - Header.txt" />
-    <None Include="Assets\NGUI\Examples\Atlases\SciFi\SciFi Font - Normal.txt" />
-    <None Include="Assets\NGUI\Examples\Atlases\Wooden\Arimo14.txt" />
-    <None Include="Assets\NGUI\Examples\Atlases\Wooden\Arimo18.txt" />
-    <None Include="Assets\NGUI\Examples\Atlases\Wooden\Arimo20.txt" />
-    <None Include="Assets\NGUI\Examples\Models\Orc Armor\Orc Armor.shader" />
-    <None Include="Assets\NGUI\Examples\Models\Orc\Orc Skin.shader" />
-    <None Include="Assets\NGUI\Examples\Other\English.txt" />
-    <None Include="Assets\NGUI\Examples\Other\French.txt" />
-    <None Include="Assets\NGUI\Examples\Shaders\Refractive.shader" />
     <None Include="Assets\NGUI\ReadMe - 2.7.0.txt" />
     <None Include="Assets\NGUI\Resources\Shaders\GUI - Text Shader (AlphaClip).shader" />
     <None Include="Assets\NGUI\Resources\Shaders\GUI - Text Shader (SoftClip).shader" />
