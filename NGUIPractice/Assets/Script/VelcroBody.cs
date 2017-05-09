@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+//velcroのボディーに関するスクリプト
 public class VelcroBody : MonoBehaviour {
 
     GameMaster _GM;

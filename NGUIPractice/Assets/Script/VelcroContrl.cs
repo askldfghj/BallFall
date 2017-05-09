@@ -3,29 +3,29 @@ using System.Collections;
 
 public class VelcroContrl : MonoBehaviour
 {
-    public Transform _line; //팔의 Transform (오브젝트)
+    public Transform _line; //腕の Transform (オブジェクト)
     public Transform _bodypivot;
     public Transform _handpivot;
-    public int distance; //팔이 뻗을수 있는 길이(update당 1 증가)
+    public int distance; //腕の長さ
     Transform _player;
 
     BoxCollider2D _box2d; //box collider
     RaycastHit2D _hit; //Ray2D
-    int _layerMask; //Ray2D에 넣을 레이어 마스크
+    int _layerMask;
 
-    Vector3 _initPosi; //핸드의 초기 포지션
+    Vector3 _initPosi;
 
 
-    float _lineLength; //현재 팔 길이 (localposition)
-    int _xPosi; //현재 팔 길이 (쉬운 거리)
+    float _lineLength; //現在の腕の長さ (localposition)
+    int _xPosi;
 
-    bool _isAwake; //머신이 깨어남의 여부
-    bool _isStop; //팔의 기동 여부
-    bool _isBack; //팔 움직임 방향의 여부
-    bool _isHanded; //플레이어 잡음의 여부
-    bool _isRightStruct; //오른쪽 왼쪽 설치방향의 여부
-
-    // Use this for initialization
+    //マシーンの状態
+    bool _isAwake;
+    bool _isStop;
+    bool _isBack;
+    bool _isHanded;
+    bool _isRightStruct;
+    
     void Awake()
     {
         _layerMask = 1 << 9;
@@ -50,8 +50,7 @@ public class VelcroContrl : MonoBehaviour
         _box2d.enabled = false;
         _lineLength = 0f;
     }
-
-    // Update is called once per frame
+    
     void FixedUpdate()
     {
         if (_isAwake)

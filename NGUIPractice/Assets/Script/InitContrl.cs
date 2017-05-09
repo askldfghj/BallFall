@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+//初期位置
 public class InitContrl : MonoBehaviour
 {
     Vector3 _initPosi;

@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
+//オブジェクトプール　スクリプト
 public class spawn : MonoBehaviour
 {
     public static spawn _current;
@@ -39,10 +40,9 @@ public class spawn : MonoBehaviour
         {
             GameObject floorset = (GameObject)Instantiate(_floorSet);
 
-            floorset.transform.parent = transform; //Pool오브젝트를 부모로 삼도록 한다.
+            floorset.transform.parent = transform;
             floorset.SetActive(false);
             _floorList.Add(floorset);
-            //비활성후 리스트 추가
             yield return null;
         }
 
@@ -50,10 +50,9 @@ public class spawn : MonoBehaviour
         {
             GameObject velcro = (GameObject)Instantiate(_velcro);
 
-            velcro.transform.parent = transform; //Pool오브젝트를 부모로 삼도록 한다.
+            velcro.transform.parent = transform;
             velcro.SetActive(false);
             _velcroList.Add(velcro);
-            //비활성후 리스트 추가
             yield return null;
         }
 
@@ -92,6 +91,7 @@ public class spawn : MonoBehaviour
         
     }
 
+    //ステージの初期状態
     public void InitStage()
     {
         for (int i = 0; i < 5; i++)

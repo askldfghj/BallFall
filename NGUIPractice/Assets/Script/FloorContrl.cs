@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+//各層の管理スクリプト
 public class FloorContrl : MonoBehaviour
 {
     Transform _player;
@@ -36,7 +37,6 @@ public class FloorContrl : MonoBehaviour
     {
     }
 
-    // Update is called once per frame
     void FixedUpdate()
     {
         transform.Translate(Vector3.up * 0.01f * ((_master.GetScore() / 100 + 1) * 0.5f) );
@@ -68,6 +68,7 @@ public class FloorContrl : MonoBehaviour
 
     }
 
+    //floorとVelcroをオブジェクトプールから作る
     void CreateFloor()
     {
         _isCreate = true;
@@ -93,6 +94,7 @@ public class FloorContrl : MonoBehaviour
         }
     }
 
+    //velcroの位置を決める
     void VelcroSetting(int ran, GameObject velcro)
     {
         if (ran == 0)

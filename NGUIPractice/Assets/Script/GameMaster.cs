@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 
+//ゲームステージに関するスクリプト
 public class GameMaster : MonoBehaviour
 {
     public UILabel _scoreboard;
@@ -13,7 +14,6 @@ public class GameMaster : MonoBehaviour
     bool _isPause;
     bool _isOver;
     int _score;
-    // Use this for initialization
 
     void Start()
     {
@@ -55,7 +55,6 @@ public class GameMaster : MonoBehaviour
         if (!_isPause)
         {
             _result.SetActive(false);
-            //Application.LoadLevel("1_play");
             _score = 0;
             _scoreboard.text = _score.ToString();
             spawn._current.PoolInActive();
@@ -89,11 +88,6 @@ public class GameMaster : MonoBehaviour
     public void IsOver()
     {
         _isOver = true;
-    }
-
-    public void IsPause()
-    {
-
     }
 
     public int GetScore()

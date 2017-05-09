@@ -5,7 +5,6 @@ public class StartButton : MonoBehaviour
 {
     WaitForSeconds _waitsec;
     public UILabel _label;
-    // Use this for initialization
     void Awake()
     {
         _waitsec = new WaitForSeconds(1f);
@@ -14,8 +13,7 @@ public class StartButton : MonoBehaviour
     {
         
     }
-
-    // Update is called once per frame
+    
     void Update()
     {
         KeyProcess();

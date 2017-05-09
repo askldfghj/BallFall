@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+//プレイヤーに関するスクリプト
 public class PlayerContrl : MonoBehaviour
 {
     bool _isVelcroed;
